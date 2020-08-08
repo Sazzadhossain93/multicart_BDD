@@ -13,7 +13,7 @@ import cucumber.api.junit.Cucumber;
 
 @CucumberOptions(
 		
-		features = "C:\\Users\\default.LAPTOP-NL7B5LGV\\eclipse-workspace\\MultiCart_Cucumber_BDD\\src\\test\\resources\\Features\\register.feature",
+		features = "C:\\Users\\default.LAPTOP-NL7B5LGV\\eclipse-workspace\\MultiCart_Cucumber_BDD\\src\\test\\resources\\Features\\registerWithMaps.feature",
 		glue = {"stepDefinitions"},
 		
 		format = {"pretty", "html:test-output"},

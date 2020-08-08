@@ -1,9 +1,12 @@
 package stepDefinitions;
 
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -80,9 +83,27 @@ public class StepDefinitions {
 		
 		driver.findElement(By.xpath("//input[@class='login_btn']")).click();
 	}
+	
+	//deal step definition with maps
+    @When("^user enters registration details$")
+	public void user_enters_registration_details(DataTable regData)  {
+	   
+		for(Map<String, String> data : regData.asMaps(String.class, String.class)) {
+			
+			driver.findElement(By.xpath("//input[@id='txtEmail']")).sendKeys(data.get("Email"));
+			driver.findElement(By.xpath("//input[@id='txtUserName']")).sendKeys(data.get("Username"));
+			driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys(data.get("Password"));
+			driver.findElement(By.xpath("//input[@id='txtCnfPassword']")).sendKeys(data.get("Password"));
+			driver.findElement(By.xpath("//input[@id='txtFirstName']")).sendKeys(data.get("Firstname"));
+			driver.findElement(By.xpath("//input[@id='txtLastName']")).sendKeys(data.get("Lastname"));
+			driver.findElement(By.xpath("//div[@class='field_wrapper_required field_wrapper formfield_row']//input[@class='form-control']")).sendKeys(data.get("Address"));
+			
+			driver.findElement(By.xpath("//input[@class='login_btn']")).click();
+			
+		}
+	}
 
-	
-	
+
 	
 	
 	
